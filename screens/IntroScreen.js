@@ -14,7 +14,7 @@ const IntroScreen = ({ navigation }) => {
       navigation.navigate('BottomTabNavigation', { userName });
     }
   };
-  
+
   return (
     <View
       style={{
@@ -33,13 +33,14 @@ const IntroScreen = ({ navigation }) => {
             height: 50,
             borderColor: '#153075',
             borderWidth: 1,
+            borderRadius:10,
             marginVertical: 10,
             padding: 5,
             color: '#F9B023',
             width: '100%',
             textAlign: 'center',
           }}
-          placeholder="Your Name"
+          placeholder=" Enter Your Name"
           placeholderTextColor="#F9B023"
           onChangeText={(text) => setUserName(text)}
           value={userName}

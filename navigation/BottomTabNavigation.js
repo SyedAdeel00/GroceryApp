@@ -53,6 +53,8 @@ const TabIcon = ({ name, size, color, focused }) => {
   
 
 const BottomTabNavigation = () => {
+  const route = useRoute()
+
   return (
     <Tab.Navigator
       tabBar={(props) => <CustomTabBar {...props} />}
@@ -71,6 +73,7 @@ const BottomTabNavigation = () => {
       <Tab.Screen
         name="Home"
         component={GroceryHomeScreen}
+        initialParams={{ data: route.params.userName }}
         options={{
             tabBarLabel: () => null,
           headerShown: false,

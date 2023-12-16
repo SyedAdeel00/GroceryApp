@@ -16,7 +16,7 @@ import { useNavigation } from '@react-navigation/native';
 const GroceryHomeScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  
+  console.log("pppp",route.params)
 
   const [products, setProducts] = useState([]);
 
@@ -37,7 +37,7 @@ const GroceryHomeScreen = () => {
   const renderProductItem = ({ item }) => {
     return (
       <TouchableOpacity onPress={() => navigation.navigate('ProductDetails', { product: item, isLiked: item.isLiked })}>
-        <View style={{ marginLeft: 5, marginTop: 30, borderRadius: 20, width: '60%', marginStart: 10 }}>
+        <View style={{ marginLeft: 5, marginTop: 15, borderRadius: 20, width: '60%', marginStart: 10 }}>
           <View style={{ flex: 1, paddingRight: 7 }}>
             <View style={{ width: '100%', padding: 16, backgroundColor: '#F8F9FB', borderRadius: 10 }}>
               <View>
@@ -70,10 +70,10 @@ const GroceryHomeScreen = () => {
   return (
     <SafeAreaView style={{ flex: 1, marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0 }}>
       <View style={{ backgroundColor: '#fff' }}>
-        <View style={{ backgroundColor: '#2A4BA0', padding: 20, borderTopLeftRadius: 30, borderTopRightRadius: 30 }}>
-          <HStack justifyContent={'space-between'} alignItems={'center'}>
-            <Text style={{ color: "#fff", fontSize: 25, fontWeight: '500' }}>{`Hey, ${route?.params?.userName}!`}</Text>
-            <Pressable>
+        <View style={{ backgroundColor: '#2A4BA0', borderTopLeftRadius: 30, borderTopRightRadius: 30, height:'24%' }}>
+          <HStack justifyContent={'space-between'} alignItems={'center'} marginTop={10}>
+            <Text style={{ color: "#fff", fontSize: 25, fontWeight: '500', left:10 }}>{`Hey, ${route?.params?.data}!`}</Text>
+            <Pressable style={{right:10}}>
               <CartIcon color="#fff" />
             </Pressable>
           </HStack>
@@ -81,7 +81,7 @@ const GroceryHomeScreen = () => {
             <View
               style={{
                 backgroundColor: '#153075',
-                width: '100%',
+                width: '92%',
                 borderRadius: 30,
                 height: 60,
                 flexDirection: 'row',
@@ -102,7 +102,9 @@ const GroceryHomeScreen = () => {
           </View>
           <View style={{ marginTop: 25 }}>
             <HStack justifyContent={'space-between'}>
-              <View>
+              <View style={{
+                left:10
+              }}>
                 <VStack>
                   <Text style={{ color: "#FFFFFF80", fontSize: 12 }}>Delivery To </Text>
                   <View>
@@ -113,7 +115,9 @@ const GroceryHomeScreen = () => {
                   </View>
                 </VStack>
               </View>
-              <View>
+              <View style={{
+                right:10
+              }}>
                 <VStack>
                   <Text style={{ color: "#FFFFFF80", fontSize: 12 }}>Within</Text>
                   <View>
@@ -131,7 +135,7 @@ const GroceryHomeScreen = () => {
           <View>
             <OfferCarousel />
           </View>
-          <Text style={{ fontSize: 33, fontWeight: '300', marginLeft: 10, marginTop: 10 }}>Recommended</Text>
+          <Text style={{ fontSize: 33, fontWeight: '300', marginLeft: 10, marginTop: 8 }}>Recommended</Text>
           <View>
             <FlatList
               data={products}
