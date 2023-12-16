@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, Pressable, TouchableOpacity, SafeAreaView, StatusBar, TextInput, ScrollView } from 'react-native';
-import { Input } from 'react-native-elements';
 import getAllProducts from '../api/products';
 import { HStack, VStack } from 'native-base';
 import CartIcon from '../components/cartIcon';
