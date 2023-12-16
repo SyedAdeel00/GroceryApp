@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet, Text } from 'react-native';
 import { Button, Snackbar } from 'react-native-paper';
 import * as Linking from 'expo-linking';
+import { Center } from 'native-base';
 
 const FeedbackScreen = () => {
   const whatsappNumber = '+919368884649';
@@ -25,6 +26,16 @@ const FeedbackScreen = () => {
 
   return (
     <View style={styles.container}>
+      <Center>
+      <View style={{
+        padding:10
+      }}>
+      <Text style={{
+        color:"#fff",
+        fontSize:50
+      }}> FeedBack </Text>
+      </View>
+      </Center>
       <TextInput
         label="Title"
         value={title}
@@ -83,7 +94,8 @@ const styles = StyleSheet.create({
     borderColor: '#F9B023',
     borderRadius: 8,
     padding: 10,
-    color: '#2A4BA0',
+    color: 'black',
+    fontSize:15
   },
   button: {
     marginTop: 16,
