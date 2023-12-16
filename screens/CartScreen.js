@@ -14,19 +14,35 @@ const CartScreen = () => {
   const [ totalAmount, setTotalAmount] = useState();
   const [deleteButton, setDeleteButton] = useState(false);
 
+  // useEffect(() => {
+  //   const fetchCartItems = async () => {
+  //     try {
+  //       const storedCart = await AsyncStorage.getItem('cart');
+  //       const parsedCart = storedCart ? JSON.parse(storedCart) : [];
+  //       setCartItems(parsedCart);
+  //     } catch (error) {
+  //       console.error('Error fetching cart items:', error);
+  //     }
+  //   };
+
+  //   fetchCartItems();
+  // }, []);
+
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
         const storedCart = await AsyncStorage.getItem('cart');
         const parsedCart = storedCart ? JSON.parse(storedCart) : [];
         setCartItems(parsedCart);
+        updateTotalAmount(parsedCart); // Calculate the initial total amount
       } catch (error) {
         console.error('Error fetching cart items:', error);
       }
     };
-
+  
     fetchCartItems();
   }, []);
+  
 
   const increaseQuantity = (itemId) => {
     const updatedCart = cartItems.map((item) =>
